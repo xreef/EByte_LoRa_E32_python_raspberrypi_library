@@ -302,13 +302,15 @@ class LoRaE32:
         self.m0_pin = m0_pin
         self.m1_pin = m1_pin
 
-        self.uart_baudrate = uart.get_baudrate()  # This value must 9600 for configuration
-        self.uart_parity = uart.get_parity()  # This value must be the same of the module
-        self.uart_stop_bits = uart.get_stop_bits()  # This value must be the same of the module
+        self.uart_baudrate = uart.baudrate  # This value must 9600 for configuration
+        self.uart_parity = uart.parity  # This value must be the same of the module
+        self.uart_stop_bits = uart.stopbits  # This value must be the same of the module
 
         self.mode = None
 
     def begin(self):
+        GPIO.setmode(self.gpio_mode)
+        
         if self.aux_pin is not None:
             GPIO.setup(self.aux_pin, GPIO.IN)
         if self.m0_pin is not None and self.m1_pin is not None:
