@@ -630,7 +630,7 @@ class LoRaE32:
         result = ResponseStatusCode.E32_SUCCESS
 
         size_ = len(message.encode('utf-8'))
-        if size_ > MAX_SIZE_TX_PACKET + 2:
+        if size_ > MAX_SIZE_TX_PACKET:
             return ResponseStatusCode.ERR_E32_PACKET_TOO_BIG
 
         if ADDH is not None and ADDL is not None and CHAN is not None:
