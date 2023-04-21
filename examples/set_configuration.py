@@ -1,3 +1,4 @@
+
 # Author: Renzo Mischianti
 # Website: www.mischianti.org
 #
@@ -10,17 +11,20 @@
 # Note: This code was written and tested using RaspberryPi on a ESP32 board.
 #       It works with other boards, but you may need to change the UART pins.
 
+import sys, os
+#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append('.')
+sys.path.append('./lib')
+
 from lora_e32 import LoRaE32, print_configuration, Configuration
 from lora_e32_constants import OperatingFrequency, FixedTransmission, WirelessWakeUpTime, TransmissionPower, \
     TransmissionPower20, AirDataRate, UARTParity, UARTBaudRate
 from lora_e32_operation_constant import ResponseStatusCode
 import serial
 
-# Create a UART object to communicate with the LoRa module
-uart2 = serial.Serial('/dev/ttyAMA0', baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
+uart2 = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
 
-# Create a LoRaE32 object, passing the UART object and pin configurations
-lora = LoRaE32('433T20D', uart2, aux_pin=15, m0_pin=21, m1_pin=19)
+lora = LoRaE32('433T20D', uart2, aux_pin=18, m0_pin=23, m1_pin=24)
 
 # Initialize the LoRa module and print the initialization status code
 code = lora.begin()
@@ -133,3 +137,5 @@ print_configuration(confSetted)
 # OptionFEC         : 0b1  ->  Turn on Forward Error Correction Switch (Default)
 # OptionPower       : 0b0  ->  20dBm (Default)
 # ----------------------------------------
+
+
