@@ -664,7 +664,7 @@ class LoRaE32:
         return result
 
     def available(self) -> int:
-        return self.uart.any()
+        return self.uart.in_waiting
 
     def end(self) -> ResponseStatusCode:
         try:
