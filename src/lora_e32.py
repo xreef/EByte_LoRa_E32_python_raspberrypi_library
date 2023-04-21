@@ -577,6 +577,9 @@ class LoRaE32:
             data = self.uart.read(size)
         else:
             data = self.uart.read_all()
+            if self.uart.in_waiting > 0:
+                data += self.uart.read_all()
+
             self.clean_UART_buffer()
 
         if data is None or len(data) == 0:
