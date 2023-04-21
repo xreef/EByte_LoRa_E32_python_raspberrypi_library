@@ -90,7 +90,7 @@ class Logger:
         return Logger(self.enable_debug)
 
 
-logging = Logger(False)
+logging = Logger(True)
 
 logger = logging.getLogger(__name__)
 
@@ -309,6 +309,12 @@ class LoRaE32:
         self.mode = None
 
     def begin(self):
+        if not self.uart.is_open:
+            self.uart.open()
+        
+        self.uart.reset_input_buffer()
+        self.uart.reset_output_buffer()
+        
         GPIO.setmode(self.gpio_mode)
         
         if self.aux_pin is not None:
@@ -440,8 +446,13 @@ class LoRaE32:
 
     def write_program_command(self, cmd) -> int:
         cmd = bytes([cmd, cmd, cmd])
+        #self.uart.reset_input_buffer()
+        
         size = self.uart.write(cmd)
+        #self.uart.reset_output_buffer()
         self.managed_delay(50)  # need to check
+        
+#        self.uart.reset_output_buffer()
         return size != 3
 
     def get_configuration(self) -> (ResponseStatusCode, Configuration):
@@ -458,13 +469,13 @@ class LoRaE32:
 
         self.write_program_command(ProgramCommand.READ_CONFIGURATION)
 
-        data = self.uart.read()
+        data = self.uart.read_all()
+        logger.debug("data: {}".format(data))
 
         if data is None or len(data) != 6:
             code = ResponseStatusCode.ERR_E32_DATA_SIZE_NOT_MATCH
             return code, None
 
-        logger.debug("data: {}".format(data))
         logger.debug("data len: {}".format(len(data)))
 
         logger.debug("model: {}".format(self.model))
@@ -565,7 +576,7 @@ class LoRaE32:
         elif size is not None:
             data = self.uart.read(size)
         else:
-            data = self.uart.read()
+            data = self.uart.read_all()
             self.clean_UART_buffer()
 
         if data is None or len(data) == 0:
@@ -583,7 +594,7 @@ class LoRaE32:
         return code, msg
 
     def clean_UART_buffer(self):
-        self.uart.read()
+        self.uart.read_all()
 
     def _read_until(self, terminator='\n') -> bytes:
         line = b''
@@ -658,8 +669,9 @@ class LoRaE32:
     def end(self) -> ResponseStatusCode:
         try:
             if self.uart is not None:
-                self.uart.deinit()
+                self.uart.close()
                 del self.uart
+                GPIO.cleanup()
             return ResponseStatusCode.E32_SUCCESS
 
         except Exception as E:
