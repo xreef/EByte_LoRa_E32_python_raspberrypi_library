@@ -8,16 +8,9 @@
 # Note: This code was written and tested using RaspberryPi on an ESP32 board.
 #       It works with other boards, but you may need to change the UART pins.
 
-
-import sys, os
-#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append('.')
-sys.path.append('./lib')
-
 from lora_e32 import LoRaE32, print_configuration, Configuration
 from lora_e32_operation_constant import ResponseStatusCode
 import serial
-from RPi import GPIO
 
 loraSerial = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
 
@@ -30,7 +23,9 @@ code, configuration = lora.get_configuration()
 
 print("Retrieve configuration: {}", ResponseStatusCode.get_description(code))
 
-print_configuration(configuration)# Initialization: {} Success
+print_configuration(configuration)
+
+# Initialization: {} Success
 # Retrieve configuration: {} Success
 # ----------------------------------------
 # HEAD : 0b11000000 192
@@ -48,4 +43,4 @@ print_configuration(configuration)# Initialization: {} Success
 # OptionFEC         : 0b1  ->  Turn on Forward Error Correction Switch (Default)
 # OptionPower       : 0b0  ->  20dBm (Default)
 # ----------------------------------------
-# RaspberryPi v1.19.1 on 2022-06-18; ESP32 module with ESP32
+

@@ -197,43 +197,8 @@ fixed
 
 ### Wiring  
 
-#### Arduino UNO
-![](https://www.mischianti.org/wp-content/uploads/2019/10/LoRa_E32-TTL-100_Arduino_VD_PU_FullyConnected_bb-e1570517268668.jpg)
-
-#### Arduino MKR WiFi 1010
-![](https://www.mischianti.org/wp-content/uploads/2019/10/LoRa_E32-TTL-100_WemosD1_VD_PU_FullyConnected_bb-e1570517387323-768x560.jpg)
-
-#### ESP32 Dev Kit V1
-![](https://www.mischianti.org/wp-content/uploads/2020/08/Ebyte-LoRa-E22-device-esp32-dev-kit-v1-breadboard-full-connection.jpg)
-
-#### ESP8266 NodeMCU
-![](https://www.mischianti.org/wp-content/uploads/2021/12/Ebyte_LoRa_Exx_Arduino_MKR_WiFi_1010_Fully_connected_breadboard-720x624.jpg)
-
-
-# An Arduino UNO shield to simplify the use
-Arduino UNO shield
-
-<img width="450px" src="https://www.mischianti.org/wp-content/uploads/2019/12/ArduinoShieldMountedE32LoRa_min.jpg" alt="" class="wp-image-2155"/>
-
-You can order the PCB  [here](https://www.pcbway.com/project/shareproject/LoRa_E32_Series_device_Arduino_shield.html?from=mischianti05) 
-
-Instruction and assembly video on 6 part of the guide
-
-# An WeMos D1 shield to simplify the use
-WeMos D1 shield
-<img width="450px" src="https://www.mischianti.org/wp-content/uploads/2020/01/WeMosD1ShieldMountedE32LoRa_min.jpg" alt="" class="wp-image-2155"/>
-
-You can order the PCB  [here](https://www.pcbway.com/project/shareproject/LoRa_E32_Series_device_WeMos_D1_mini_shield_RF_8km_range.html?from=mischianti05) 
-
-# An ESP32 shield to simplify the use
-ESP32 shield
-<img width="450px" src="https://www.mischianti.org/wp-content/uploads/2021/04/esp32-DOIT-DEV-KIT-v1-EByte-LoRa-E32-shield-main.jpg" alt="" class="wp-image-2155"/>
-
-You can order the PCB  [here](https://www.pcbway.com/project/shareproject/LoRa_ESP32_DEV_KIT_v1_shield_for_EByte_E32_E22__RF_8km_12km_range.html?from=mischianti05) 
-
-
-
-Instruction and assembly video on 6 part of the guide
+#### Raspberry Pi
+![Raspberry Pi](https://www.mischianti.org/wp-content/uploads/2023/04/Raspberry-Pi-EByte-LoRa-Exx-fully-connected_bb.jpg)
 
 
 

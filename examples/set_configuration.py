@@ -11,11 +11,6 @@
 # Note: This code was written and tested using RaspberryPi on a ESP32 board.
 #       It works with other boards, but you may need to change the UART pins.
 
-import sys, os
-#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append('.')
-sys.path.append('./lib')
-
 from lora_e32 import LoRaE32, print_configuration, Configuration
 from lora_e32_constants import OperatingFrequency, FixedTransmission, WirelessWakeUpTime, TransmissionPower, \
     TransmissionPower20, AirDataRate, UARTParity, UARTBaudRate
