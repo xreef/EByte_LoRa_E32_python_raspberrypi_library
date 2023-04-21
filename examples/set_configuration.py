@@ -22,9 +22,9 @@ from lora_e32_constants import OperatingFrequency, FixedTransmission, WirelessWa
 from lora_e32_operation_constant import ResponseStatusCode
 import serial
 
-uart2 = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
+loraSerial = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
 
-lora = LoRaE32('433T20D', uart2, aux_pin=18, m0_pin=23, m1_pin=24)
+lora = LoRaE32('433T20D', loraSerial, aux_pin=18, m0_pin=23, m1_pin=24)
 
 # Initialize the LoRa module and print the initialization status code
 code = lora.begin()

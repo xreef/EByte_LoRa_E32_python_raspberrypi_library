@@ -46,8 +46,8 @@ pip install ebyte-lora-e32-rpi
 from lora_e32 import LoRaE32
 import serial
 
-uart2 = serial.Serial('/dev/ttyAMA0', baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
-lora = LoRaE32('433T20D', uart2, aux_pin=15, m0_pin=21, m1_pin=19)
+loraSerial = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
+lora = LoRaE32('433T20D', loraSerial, aux_pin=18, m0_pin=23, m1_pin=24)
 ```
 #### Start the module transmission
 

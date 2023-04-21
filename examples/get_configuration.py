@@ -19,9 +19,9 @@ from lora_e32_operation_constant import ResponseStatusCode
 import serial
 from RPi import GPIO
 
-uart2 = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
+loraSerial = serial.Serial('/dev/serial0') #, baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS)
 
-lora = LoRaE32('433T20D', uart2, aux_pin=18, m0_pin=23, m1_pin=24)
+lora = LoRaE32('433T20D', loraSerial, aux_pin=18, m0_pin=23, m1_pin=24)
 
 code = lora.begin()
 print("Initialization: {}", ResponseStatusCode.get_description(code))
