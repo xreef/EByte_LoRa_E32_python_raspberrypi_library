@@ -6,7 +6,7 @@ setup(
     name="ebyte-lora-e32-rpi",
     package_dir={'': 'src'},
     py_modules=["lora_e32", "lora_e32_constants", "lora_e32_operation_constant"],
-    version="0.0.1",
+    version="0.0.2",
     description="Ebyte E32 LoRa raspberrypi library device very cheap and very long range (from 3Km to 8Km). Arduino LoRa EBYTE E32 device library complete and tested with Arduino, esp8266, esp32, STM32 and Raspberry Pi Pico. sx1278/sx1276.",
     long_description="Ebyte E32 LoRa raspberrypi library device very cheap and very long range (from 3Km to 8Km). Arduino LoRa EBYTE E32 device library complete and tested with Arduino, esp8266, esp32, STM32 and Raspberry Pi Pico. sx1278/sx1276.",
     keywords="LoRa, UART, EByte, e32, RaspberryPi, sx1278, sx1276",

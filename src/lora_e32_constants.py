@@ -326,7 +326,7 @@ class OperatingFrequency:
     FREQUENCY_170 = 130
     FREQUENCY_470 = 370
     FREQUENCY_868 = 862
-    FREQUENCY_900 = 850
+    FREQUENCY_900 = 862
     FREQUENCY_915 = 900
 
     @staticmethod
