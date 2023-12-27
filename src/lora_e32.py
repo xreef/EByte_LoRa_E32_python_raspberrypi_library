@@ -2,7 +2,7 @@
 # EBYTE LoRa E32 Series for RaspberryPi
 #
 # AUTHOR:  Renzo Mischianti
-# VERSION: 0.0.2
+# VERSION: 0.0.3
 #
 # This library is based on the work of:
 # https://www.mischianti.org/category/my-libraries/lora-e32-devices/
